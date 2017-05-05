@@ -1,0 +1,29 @@
+{
+  "name": "website-optimization-project",
+  "version": "1.0.0",
+  "description": "FEND Website Optimization Final Project",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeaDD/website-optimization-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeaDD/website-optimization-project/issues"
+  },
+  "homepage": "https://github.com/LeaDD/website-optimization-project#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-cssmin": "^2.1.0",
+    "grunt-contrib-htmlmin": "^2.3.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^2.3.0",
+    "grunt-responsive-images": "^1.10.1",
+    "load-grunt-tasks": "^3.5.2"
+  }
+}
