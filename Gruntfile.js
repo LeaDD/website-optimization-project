@@ -74,6 +74,19 @@ module.exports = function(grunt) {
                     dest: 'dist/views/images'
                 }]
             }
+        },
+        imagemin: {
+            dist: {
+                options: {
+                    optimizationLevel: 3
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'dist/',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: 'dist/'
+                }]
+            }
         }
     });
 
@@ -84,5 +97,6 @@ module.exports = function(grunt) {
         'cssmin',
         'htmlmin',
         'clean',
-        'responsive_images']);
+        'responsive_images',
+        'imagemin']);
 };
