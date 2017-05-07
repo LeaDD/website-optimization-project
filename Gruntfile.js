@@ -2,6 +2,11 @@ module.exports = function(grunt) {
 
     require('load-grunt-tasks')(grunt);
 
+//Use the following line to import a .yml config file which will name all of
+//our directories we might want to reference in the Gruntfile.js. Helps with
+//maintenance.
+//    var config = grunt.file.readYAML('Gruntconfig.yml');
+
     grunt.initConfig({
         //LINT JAVASCRIPT
         jshint: {
@@ -75,6 +80,7 @@ module.exports = function(grunt) {
                 }]
             }
         },
+        //COMPRESS IMAGES
         imagemin: {
             dist: {
                 options: {
