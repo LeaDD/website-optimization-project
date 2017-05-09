@@ -423,11 +423,11 @@ var resizePizzas = function(size) {
 
 
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function determineDx (size) {
-    //var oldWidth = elem.offsetWidth;
-    //var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
-    //var oldSize = oldWidth / windowWidth;
+  //modified this function to only return the % of the div the element should take up.
 
+  //DD - Removed the calculation to get pixel size and instead will return the result of the switch statement.
+  //makes this function simpler and also simplifies the changePizzaSlices function.
+  function determineDx (size) {
     // Changes the slider value to a percent width
     function sizeSwitcher (size) {
       switch(size) {
@@ -443,19 +443,18 @@ var resizePizzas = function(size) {
     }
 
     var newSize = sizeSwitcher(size);
-    //var dx = (newSize - oldSize) * windowWidth;
 
     return newSize;
   }
 
-
   // Iterates through pizza elements on the page and changes their widths
+  //DD - Moved the new width calculation out of the loop. Also modified the width value passed the pizza containers
+  // to a percent rather than number of pixels.
   function changePizzaSizes(size) {
     var containers = document.querySelectorAll(".randomPizzaContainer");
+    var newwidth = (determineDx(size) * 100) + '%';
 
     for (var i = 0; i < containers.length; i++) {
-      //var newSize = determineDx(containers[i], size);
-      var newwidth = (determineDx(size) * 100) + '%';
       containers[i].style.width = newwidth;
     }
   }
@@ -506,8 +505,12 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+  //DD - Get array length and perform phase calculation outside of loop.
+  var len = items.length;
+  var phaseCalc = document.body.scrollTop / 1250;
+
+  for (var i = 0; i < len; i++) {
+    var phase = Math.sin(phaseCalc + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -528,7 +531,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 50; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza-100.png";
