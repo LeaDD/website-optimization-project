@@ -378,7 +378,7 @@ var pizzaElementGenerator = function(i) {
   pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
   pizzaImageContainer.style.width="35%";
 
-  pizzaImage.src = "images/pizza-100.png";
+  pizzaImage.src = "images/pizza.png";
   pizzaImage.classList.add("img-responsive");
   pizzaImageContainer.appendChild(pizzaImage);
   pizzaContainer.appendChild(pizzaImageContainer);
@@ -451,7 +451,7 @@ var resizePizzas = function(size) {
   //DD - Moved the new width calculation out of the loop. Also modified the width value passed the pizza containers
   // to a percent rather than number of pixels.
   function changePizzaSizes(size) {
-    var containers = document.querySelectorAll(".randomPizzaContainer");
+    var containers = document.getElementsByClassName("randomPizzaContainer");
     var newwidth = (determineDx(size) * 100) + '%';
 
     for (var i = 0; i < containers.length; i++) {
@@ -504,7 +504,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
   //DD - Get array length and perform phase calculation outside of loop.
   var len = items.length;
   var phaseCalc = document.body.scrollTop / 1250;

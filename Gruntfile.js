@@ -52,7 +52,7 @@ module.exports = function(grunt) {
         //CLEAR IMAGES FROM THE IMAGE DIRECTORIES
         clean: {
             dist: {
-                src: ['dist/img/*.{gif,jpg,png}','dist/views/images/*.{gif,jpg,png}']
+                src: ['dist/img/*.{gif,jpg,png}','dist/views/images/*.{gif,jpg,png}','!dist/views/images/pizza.png']
             }
         },
         //RESIZE IMAGES
