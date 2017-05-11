@@ -450,6 +450,7 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   //DD - Moved the new width calculation out of the loop. Also modified the width value passed the pizza containers
   // to a percent rather than number of pixels.
+  //DD - substituted querySelectorAll with the faster getElementsByName at reviewer suggestion.
   function changePizzaSizes(size) {
     var containers = document.getElementsByClassName("randomPizzaContainer");
     var newwidth = (determineDx(size) * 100) + '%';
@@ -507,6 +508,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
+  //DD - substituted querySelectorAll with the faster getElementsByName at reviewer suggestion.
   var items = document.getElementsByClassName('mover');
   //DD - Get array length and perform phase calculation outside of loop.
   var len = items.length;
